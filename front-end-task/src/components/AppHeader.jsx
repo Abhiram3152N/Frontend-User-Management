@@ -1,28 +1,44 @@
 import React from 'react';
-import { Navbar, Container, Nav } from 'react-bootstrap';
-import { FiSettings, FiUser } from 'react-icons/fi'; // Using Feather Icons as a lightweight alternative
+import { Nav } from 'react-bootstrap';
+import { MdOutlineHeadsetMic } from "react-icons/md";
+import { FiBell, FiUser } from "react-icons/fi";
+
 
 const AppHeader = () => {
-    return (
-        <Navbar bg="light" expand="lg" className="shadow-sm border-bottom mb-4 p-3">
-            {/* Using fluid Container ensures it spans the full width */}
-            <Container fluid>
-                <Navbar.Brand href="/" className="fw-bold d-flex align-items-center">
-                    <span className="h4 mb-0 me-2">LOGO</span>
-                    <span className="text-muted mb-0">UI</span>
-                </Navbar.Brand>
-                
-                <Nav className="ms-auto">
-                    <Nav.Link href="#settings" className="mx-2 text-dark">
-                        <FiSettings size={20} />
-                    </Nav.Link>
-                    <Nav.Link href="#profile-icon" className="text-dark">
-                        <FiUser size={20} />
-                    </Nav.Link>
-                </Nav>
-            </Container>
-        </Navbar>
-    );
+  return (
+    <header
+      className="custom-header"
+      style={{
+        width: "100%",
+        minHeight: 100,
+        display: "flex",
+        alignItems: "flex-start",
+        justifyContent: "space-between",
+        padding: "16px 32px"
+      }}
+    >
+      <div className="logo-stack">
+        <div className="logo-box">
+          <span className="logo-text">LOGO</span>
+        </div>
+        <div className="logo-estd">ESTD</div>
+        <div className="logo-year">2025</div>
+      </div>
+      <Nav className="header-icons">
+  <Nav.Link href="#support" className="icon-link">
+    <MdOutlineHeadsetMic size={24} color="#18181B" />
+  </Nav.Link>
+  <Nav.Link href="#notifications" className="icon-link">
+    <FiBell size={24} color="#18181B" />
+  </Nav.Link>
+  <Nav.Link href="#profile" className="icon-link profile-icon-link">
+    <span className="profile-avatar">
+      <FiUser size={28} color="#6834ff" />
+    </span>
+  </Nav.Link>
+</Nav>
+    </header>
+  );
 };
 
 export default AppHeader;
