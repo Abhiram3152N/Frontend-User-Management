@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Bootstrap CSS Import
-import './App.css'; // Custom CSS Import
+import 'bootstrap/dist/css/bootstrap.min.css'; 
+import './App.css'; 
 
 import { initialUsers } from './data/mockUsers'; 
 import AppHeader from './components/AppHeader';
 import UserList from './pages/UserList';
 import ProfilePage from './pages/ProfilePage';
 
-const LOCAL_STORAGE_KEY = 'campusRecruitmentUsers';
+const LOCAL_STORAGE_KEY = 'front-end-task';
 
 function App() {
   const [users, setUsers] = useState(() => {
@@ -20,11 +20,8 @@ function App() {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(users));
   }, [users]);
   
-  // Custom alert/confirm function
+  
   const confirmAction = (message) => {
-      // Since window.confirm/alert is forbidden, we return true to proceed 
-      // or false to stop, simulating confirmation. In a real app, this 
-      // would be a custom modal component.
       console.log(`ACTION CONFIRMATION: ${message}`);
       return true; 
   };
