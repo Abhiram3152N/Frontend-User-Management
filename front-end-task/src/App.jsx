@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css'; 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-phone-input-2/lib/bootstrap.css';
 import './App.css'; 
 
 import { initialUsers } from './data/mockUsers'; 

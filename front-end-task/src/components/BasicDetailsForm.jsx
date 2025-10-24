@@ -1,8 +1,8 @@
 import React from 'react';
 import { Form, Row, Col, Card } from 'react-bootstrap';
 import { BiPencil } from 'react-icons/bi';
-import { FiCopy } from "react-icons/fi";
-
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/bootstrap.css';
 
 const BasicDetailsForm = ({ data, setData }) => {
     
@@ -14,15 +14,23 @@ const BasicDetailsForm = ({ data, setData }) => {
         }));
     };
 
+    const handlePhoneChange = (value, country, e, formattedValue) => {
+        setData(prevData => ({
+            ...prevData,
+            phone: formattedValue,
+            phoneCountry: country.name,
+        }));
+    };
+
     return (
-        <Card className="p-4 border-0">
+        <Card className="p-4 border-0 shadow-sm">
             <Row className="mb-3 align-items-center">
-                 <Col>
+                <Col>
                     <h5 className="mb-0">Basic Details</h5>
-                 </Col>
-                 <Col xs="auto">
+                </Col>
+                <Col xs="auto">
                     <BiPencil size={18} className="text-muted cursor-pointer" />
-                 </Col>
+                </Col>
             </Row>
 
             <Form>
@@ -34,7 +42,6 @@ const BasicDetailsForm = ({ data, setData }) => {
                             type="text" 
                             name="firstName"
                             placeholder="e.g. John"
-                            value={data.firstName || ''}
                             onChange={handleFieldChange}
                         />
                     </Col>
@@ -44,7 +51,6 @@ const BasicDetailsForm = ({ data, setData }) => {
                             type="text" 
                             name="lastName"
                             placeholder="e.g. Doe"
-                            value={data.lastName || ''}
                             onChange={handleFieldChange}
                         />
                     </Col>
@@ -53,14 +59,13 @@ const BasicDetailsForm = ({ data, setData }) => {
                         <Form.Control 
                             type="email" 
                             name="email"
-                            placeholder="e.g. mmddbdy@gmail.com"
-                            value={data.email || ''}
+                            placeholder="e.g. johndoe@gmail.com"
                             onChange={handleFieldChange}
                         />
                     </Col>
                 </Row>
 
-                {/* Second Row: Gender / Year of Birth / Phone / Alternate Phone */}
+                {/* Second Row: Year of Birth / Gender / Phone / Alternate Phone */}
                 <Row className="mb-3">
                     <Col md={3} className="mb-3 mb-md-0">
                         <Form.Label>Year of birth</Form.Label>
@@ -68,7 +73,6 @@ const BasicDetailsForm = ({ data, setData }) => {
                             type="text" 
                             name="yearOfBirth"
                             placeholder="YYYY" 
-                            value={data.yearOfBirth || ''}
                             onChange={handleFieldChange}
                         />
                     </Col>
@@ -83,12 +87,11 @@ const BasicDetailsForm = ({ data, setData }) => {
                     </Col>
                     <Col md={3} className="mb-3 mb-md-0">
                         <Form.Label>Phone number</Form.Label>
-                        <Form.Control 
-                            type="tel" 
-                            name="phone"
-                            placeholder="+91 833..."
+                        <PhoneInput
+                            country={'in'}
                             value={data.phone || ''}
-                            onChange={handleFieldChange}
+                            onChange={handlePhoneChange}
+                            inputStyle={{ width: '100%' }}
                         />
                     </Col>
                     <Col md={3}>
@@ -97,7 +100,6 @@ const BasicDetailsForm = ({ data, setData }) => {
                             type="tel" 
                             name="alternatePhone"
                             placeholder="e.g. 9876543210"
-                            value={data.alternatePhone || ''}
                             onChange={handleFieldChange}
                         />
                     </Col>
@@ -109,22 +111,20 @@ const BasicDetailsForm = ({ data, setData }) => {
                         <Form.Label>Address</Form.Label>
                         <Form.Control 
                             as="textarea"
-                            rows={3} 
+                            rows={5} 
                             name="address"
-                            placeholder="Enter here" 
-                            value={data.address || ''}
+                            placeholder="Enter full address here..." 
                             onChange={handleFieldChange}
                         />
                     </Col>
                     <Col md={6}>
                         <Row>
-                             <Col sm={6} className="mb-3">
+                            <Col sm={6} className="mb-3">
                                 <Form.Label>Pincode</Form.Label>
                                 <Form.Control 
                                     type="text"
                                     name="pincode"
                                     placeholder="Enter here" 
-                                    value={data.pincode || ''}
                                     onChange={handleFieldChange}
                                 />
                             </Col>
