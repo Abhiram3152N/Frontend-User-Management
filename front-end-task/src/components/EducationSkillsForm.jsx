@@ -62,11 +62,11 @@ const EducationSkillsForm = ({ data, setData }) => {
                         <Row className="mb-3">
                             <Col md={6}>
                                 <Form.Label>School / College</Form.Label>
-                                <Form.Control name="college" placeholder="e.g. Lincoln College" onChange={(e) => handleEducationChange(index, e)} />
+                                <Form.Control name="college" placeholder="e.g. Lincoln College"  onChange={(e) => handleEducationChange(index, e)} />
                             </Col>
                             <Col md={6}>
                                 <Form.Label>Highest degree or equivalent</Form.Label>
-                                <Form.Control name="degree" placeholder="e.g. Bachelors in Technology"  onChange={(e) => handleEducationChange(index, e)} />
+                                <Form.Control name="degree" placeholder="e.g. Bachelors in Technology" onChange={(e) => handleEducationChange(index, e)} />
                             </Col>
                         </Row>
                         <Row className="mb-3">
@@ -107,6 +107,7 @@ const EducationSkillsForm = ({ data, setData }) => {
                             as="textarea" 
                             rows={3} 
                             placeholder="Enter here (e.g., React, Node.js, Bootstrap)" 
+                            
                             onChange={handleSkillsChange}
                         />
                     </Col>
@@ -115,8 +116,9 @@ const EducationSkillsForm = ({ data, setData }) => {
                         <Form.Control 
                             as="textarea" 
                             rows={3} 
-                            placeholder="Enter here (e.g., Project Alpha, My Portfolio)" 
+                            placeholder="Enter here" 
                             onChange={handleProjectsChange}
+                            
                         />
                     </Col>
                 </Row>
