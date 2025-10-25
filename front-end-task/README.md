@@ -1,17 +1,62 @@
-# React + Vite
+# User Management Front-End
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern React user profile management dashboard. Allows users to view, add, and edit details including experience, education, skills, resume, and LinkedIn—built using React, React-Bootstrap, and with attention to pixel-perfect Figma design.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Responsive UI built with React-Bootstrap
+- Profile summary: avatar, name, email, and phone
+- Clickable copy icon beside email field
+- Tab navigation: Basic Info, Education & Skills, Experience
+- "Add Work Experience" button supports multiple rows
+- Delete button for each experience entry
+- Sub-domain input with **vertical ash-colored bar** left of label and field (matches Figma)
+- LinkedIn and Resume in distinct card columns
+- Edit (pencil) toggles for all core sections, with lock after edit
+- All form controls and fields styled for clarity, consistency, and user-friendly input
 
-## Expanding the ESLint configuration
+## 🛠️ Usage
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# User-Management-Frontend
+- Edit info by clicking pencil icons. Sections become editable/locked as toggled.
+- Add more Work Experience rows with the plus button.
+- Delete entries with the trash icon (appears if >1 row).
+- Orange tab dot is always visible above "Education & Skills" for notification effect.
+- Copy email using the click-to-copy icon.
+
+
+## 🏗️ Structure
+
+- `ProfilePage.js`: Profile avatar, summary, and tab navigation logic
+- `BasicDetailsForm.js`: Basic info user form
+- `EducationSkillsForm.js`: Education/skills add+edit, projects
+- `ExperienceForm.js`: Work experiences, LinkedIn, Resume, all major custom UI tweaks
+
+
+## 🎨 UI Details
+
+- **Education & Skills** tab has a persistent orange dot (top-right)
+- **Sub-domain** label/field always has a tall ash (#c0c0c0) vertical bar on the left
+- Follows all Figma-provided spacing, alignment, and input behaviors
+
+
+## 📦 Tech Stack
+
+- React
+- React-Bootstrap
+- react-icons
+- JavaScript (ES6+)
+- Inline CSS + optional global CSS (no SCSS needed)
+
+
+## 📄 License
+
+For demonstration/educational use. Adapt for your organization as needed.
+
+
+## 🤝 Credits
+
+- UI/UX: Figma design provided by team
+- Framework: [React](https://reactjs.org/), [React-Bootstrap](https://react-bootstrap.github.io/)
+- Icons: [react-icons](https://react-icons.github.io/)
