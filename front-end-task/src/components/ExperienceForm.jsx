@@ -18,12 +18,10 @@ const ExperienceForm = () => {
     resume: false,
   });
 
-  // Toggle section edit mode
   const toggleEdit = (section) => {
     setIsEditable((prev) => ({ ...prev, [section]: !prev[section] }));
   };
 
-  // Handle input changes
   const handleExperienceChange = (index, e) => {
     const { name, value } = e.target;
     const updatedExperiences = [...data.workExperience];
@@ -42,7 +40,6 @@ const ExperienceForm = () => {
     }
   };
 
-  // Add / Remove experience rows
   const addExperience = () => {
     setData((prev) => ({
       ...prev,
@@ -61,7 +58,6 @@ const ExperienceForm = () => {
 
   return (
     <div className="mt-4">
-      {/* ===== Work Experience Section ===== */}
       <div className="d-flex align-items-center justify-content-between mb-3">
         <h5 style={{ fontWeight: 600, marginBottom: 0 }}>Work Experience</h5>
         <div
@@ -89,7 +85,6 @@ const ExperienceForm = () => {
         </div>
       </div>
 
-      {/* ===== Work Experience Cards ===== */}
       {data.workExperience.map((exp, index) => (
         <Card
           key={index}
@@ -110,54 +105,59 @@ const ExperienceForm = () => {
             </Button>
           )}
 
+          <Row className="mb-3">
+            <Col xs={12}>
+              <Form.Label
+                style={{
+                  fontWeight: 500,
+                  fontSize: "0.95rem",
+                  color: "#333",
+                }}
+              >
+                Domain
+              </Form.Label>
+              <Form.Control
+                name="domain"
+                placeholder="e.g. Technology"
+                value={exp.domain}
+                onChange={(e) => handleExperienceChange(index, e)}
+                disabled={!isEditable.workExperience}
+                style={{
+                  background: "#fff",
+                  height: "44px",
+                  borderColor: "#ddd",
+                }}
+              />
+            </Col>
+          </Row>
+
           <Row>
-            {/* Domain + Sub-domain */}
             <Col md={8}>
               <div
                 style={{
-                  border: "1px solid #e0e0e0",
-                  borderRadius: 12,
-                  padding: "16px 18px",
-                  background: "#f8f8fc",
+                  display: "flex",
+                  alignItems: "flex-start",
                 }}
               >
-                <Form.Label
-                  style={{
-                    fontWeight: 500,
-                    fontSize: "0.95rem",
-                    color: "#333",
-                  }}
-                >
-                  Domain
-                </Form.Label>
-                <Form.Control
-                  name="domain"
-                  placeholder="e.g. Technology"
-                  value={exp.domain}
-                  onChange={(e) => handleExperienceChange(index, e)}
-                  disabled={!isEditable.workExperience}
-                  style={{
-                    background: "#fff",
-                    height: "44px",
-                    borderColor: "#ddd",
-                    width: "97%",
-                  }}
-                />
-
-                {/* Sub-domain inside grey section */}
                 <div
                   style={{
-                    marginTop: 16,
-                    marginLeft: 12,
-                    paddingLeft: 12,
-                    borderLeft: "3px solid #d0d0d0",
+                    height: 68,
+                    minWidth: 5,
+                    borderRadius: 4,
+                    background: "#c0c0c0",
+                    marginRight: 10,
+                    opacity: 0.8,
+                    marginTop: 2,
                   }}
-                >
+                />
+                
+                <div style={{ flex: 1 }}>
                   <Form.Label
                     style={{
                       fontWeight: 500,
                       fontSize: "0.9rem",
                       color: "#555",
+                      marginBottom: 6,
                     }}
                   >
                     Sub-domain
@@ -170,17 +170,15 @@ const ExperienceForm = () => {
                     disabled={!isEditable.workExperience}
                     style={{
                       background: "#fff",
-                      height: "40px",
+                      height: "44px",
                       borderColor: "#ddd",
-                      width: "88%",
                     }}
                   />
                 </div>
               </div>
             </Col>
 
-            {/* Experience Dropdown */}
-            <Col md={4} className="align-self-end">
+            <Col md={4}>
               <Form.Label style={{ fontWeight: 500, color: "#333" }}>
                 Experience
               </Form.Label>
@@ -205,14 +203,13 @@ const ExperienceForm = () => {
         </Card>
       ))}
 
-      {/* ===== Add Work Experience Button (always active) ===== */}
       <div className="d-flex justify-content-start mb-4">
         <Button
           onClick={addExperience}
           className="d-flex align-items-center gap-2"
           style={{
-            backgroundColor: "#E9E1FF", // light lavender
-            color: "#7B61FF", // bright lavender text
+            backgroundColor: "#E9E1FF",
+            color: "#7B61FF",
             border: "none",
             borderRadius: "10px",
             fontWeight: 500,
@@ -224,9 +221,7 @@ const ExperienceForm = () => {
         </Button>
       </div>
 
-      {/* ===== LinkedIn + Resume Row ===== */}
       <Row className="mt-2">
-        {/* LinkedIn */}
         <Col md={6}>
           <Card
             className="p-3 border-0 shadow-sm h-100"
@@ -296,7 +291,6 @@ const ExperienceForm = () => {
           </Card>
         </Col>
 
-        {/* Resume */}
         <Col md={6}>
           <Card
             className="p-3 border-0 shadow-sm h-100"

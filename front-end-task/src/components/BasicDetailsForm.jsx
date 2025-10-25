@@ -62,7 +62,6 @@ const BasicDetailsForm = ({ data, setData }) => {
             </Row>
 
             <Form>
-                {/* First Row: First Name / Last Name / Email ID */}
                 <Row className="mb-3">
                     <Col md={4} className="mb-3 mb-md-0">
                         <Form.Label>First name</Form.Label>
@@ -96,7 +95,6 @@ const BasicDetailsForm = ({ data, setData }) => {
                     </Col>
                 </Row>
 
-                {/* Second Row */}
                 <Row className="mb-3">
                     <Col md={3} className="mb-3 mb-md-0">
                         <Form.Label>Year of birth</Form.Label>
@@ -144,7 +142,6 @@ const BasicDetailsForm = ({ data, setData }) => {
                     </Col>
                 </Row>
 
-                {/* Third Row */}
                 <Row className="mb-3">
                     <Col md={6} className="mb-3 mb-md-0">
                         <Form.Label>Address</Form.Label>

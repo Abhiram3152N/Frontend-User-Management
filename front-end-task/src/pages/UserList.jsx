@@ -28,7 +28,6 @@ const UserList = ({ users, setUsers, confirmAction, onViewUser }) => {
   return (
     <Container fluid className="py-4 px-5">
       <Card className="p-4 border-0 shadow-sm rounded-4">
-        {/* Header */}
         <Row className="align-items-center mb-3">
           <Col>
             <h5 className="mb-0 fw-semibold">Users</h5>
@@ -45,7 +44,6 @@ const UserList = ({ users, setUsers, confirmAction, onViewUser }) => {
           </Col>
         </Row>
 
-        {/* Table */}
         {users.length === 0 ? (
           <p className="text-center py-5 text-muted mb-0">
             No users found. Click <strong>“Add user”</strong> to create one.
@@ -115,7 +113,6 @@ const UserList = ({ users, setUsers, confirmAction, onViewUser }) => {
         )}
       </Card>
 
-      {/* Offcanvas (Add User Form) */}
       <Offcanvas
         show={showOffcanvas}
         onHide={handleCloseOffcanvas}

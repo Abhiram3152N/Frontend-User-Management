@@ -8,7 +8,6 @@ const EducationSkillsForm = ({ data, setData }) => {
   const [isEducationEditable, setIsEducationEditable] = useState(true);
   const [isSkillsEditable, setIsSkillsEditable] = useState(true);
 
-  // --- Education Handlers ---
   const handleEducationChange = (index, e) => {
     const { name, value } = e.target;
     const updatedEducation = data.education.map((item, i) =>
@@ -29,7 +28,6 @@ const EducationSkillsForm = ({ data, setData }) => {
     setData((prev) => ({ ...prev, education: updatedEducation }));
   };
 
-  // --- Skills/Projects Handlers ---
   const handleSkillsChange = (e) => {
     const skillsArray = e.target.value
       .split(",")
@@ -48,7 +46,6 @@ const EducationSkillsForm = ({ data, setData }) => {
 
   return (
     <Card className="p-4 border-0">
-      {/* EDUCATION HEADER */}
       <Row className="mb-4 align-items-center">
         <Col>
           <h5 className="mb-0 fw-semibold">Education Details</h5>
@@ -75,7 +72,6 @@ const EducationSkillsForm = ({ data, setData }) => {
       </Row>
 
       <Form>
-        {/* Education Entries */}
         {data.education &&
           data.education.map((edu, index) => (
             <Card
@@ -168,7 +164,6 @@ const EducationSkillsForm = ({ data, setData }) => {
             </Card>
           ))}
 
-        {/* Lavender Add Education Button */}
         <Button
           onClick={addEducation}
           className="mb-5"
@@ -184,7 +179,6 @@ const EducationSkillsForm = ({ data, setData }) => {
           + Add Education
         </Button>
 
-        {/* SKILLS HEADER */}
         <Row className="mb-4 align-items-center mt-4">
           <Col>
             <h5 className="mb-0 fw-semibold">Skills & Projects</h5>
@@ -210,7 +204,6 @@ const EducationSkillsForm = ({ data, setData }) => {
           </Col>
         </Row>
 
-        {/* SKILLS + PROJECTS */}
         <Row>
           <Col md={6} className="mb-3">
             <Form.Label>Skills (Comma Separated)</Form.Label>
